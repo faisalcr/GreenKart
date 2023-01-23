@@ -107,8 +107,8 @@ public void user_verify_the_page_title(String arg1) throws Throwable {
 
 	@Then("^user go to next page to select country \"([^\"]*)\"$")
 	public void user_go_to_next_page_to_select_country(String arg1) throws Throwable {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'Place Order')]")));  
+	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'Place Order')]")));  
 	    driver.findElement(By.xpath("//*[contains(text(),'Place Order')]")).click();
 	    driver.findElement(By.xpath("//*[@style=\"width: 200px;\"]")).click();
 	    driver.findElement(By.xpath("//*[@value='" + arg1 + "']")).click();
