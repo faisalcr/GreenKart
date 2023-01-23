@@ -119,7 +119,7 @@ public class GreenKartSteps {
 	}
 
 	@Then("^user verify succesfully shipped items$")
-	public void user_verify_succesfully_shipped_items() throws Throwable {
+	public void user_verify_succesfully_shipped_items(String arg1) throws Throwable {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'" + arg1 + "')]")));	
 	    WebElement actualElement = driver.findElement(By.xpath("//*[contains(text(),'Thank you,your order has been placed successfully')]"));
