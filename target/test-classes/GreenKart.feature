@@ -9,4 +9,4 @@
     Then user go to cart page
     And user verify total price
     And user go to next page to select country "United States"
-    And user verify succesfully shipped items "Thank you,your order has been placed successfully"
+    And user verify succesfully shipped items "Thank you, your order has been placed successfully"
