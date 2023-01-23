@@ -33,18 +33,17 @@ public class GreenKartSteps {
 		driver = new ChromeDriver();
 		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
 		driver.manage().window().maximize();
-		pf= new GreenKartPages(driver); 
-	    
+		pf= new GreenKartPages(driver);  
 	}
 
-	@Given("^user verify the page title$")
-	public void user_verify_the_page_title() throws Throwable {
-		String expected="GreenKart - veg and fruits kart";
+	@Given("^user verify the page title \"([^\"]*)\"$")
+public void user_verify_the_page_title(String arg1) throws Throwable {
+    String expected="GreenKart - veg and fruits kart";
 	    String actual= driver.getTitle();
 	    Assert.assertTrue("The title doesn't match", actual.contains(expected));
 	   //System.out.println(driver.getTitle()); 
 	   // Assert.assertEquals(expected, actual);
-	}
+}
 
 	@When("^user capture all items from the page$")
 	public void user_capture_all_items_from_the_page() throws Throwable {
@@ -118,15 +117,15 @@ public class GreenKartSteps {
 	    
 	}
 
-	@Then("^user verify succesfully shipped items$")
-	public void user_verify_succesfully_shipped_items(String arg1) throws Throwable {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	@Then("^user verify succesfully shipped items \"([^\"]*)\"$")
+public void user_verify_succesfully_shipped_items(String arg1) throws Throwable {
+   WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'" + arg1 + "')]")));	
 	    WebElement actualElement = driver.findElement(By.xpath("//*[contains(text(),'Thank you,your order has been placed successfully')]"));
 	    String actual = actualElement.getText();
-	    Assert.assertTrue("The text for product shipment is incorrect", actual.contains(arg1)); 
-	    
-	}
+	    Assert.assertTrue("The text for product shipment is incorrect", actual.contains(arg1));
+}
+
 
 }
 
