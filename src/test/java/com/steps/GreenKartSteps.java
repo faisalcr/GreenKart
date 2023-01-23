@@ -60,8 +60,8 @@ public void user_verify_the_page_title(String arg1) throws Throwable {
 		}
 //	    for (int i=0; i<elements.size(); i++) {
 //	    	String price= elements.get(i).getText().trim();
-//			int priceInt= Integer.parseInt(price);
-//			prices.add(priceInt);
+//		int priceInt= Integer.parseInt(price);
+//		prices.add(priceInt);
 //	    	//System.out.println(priceInt);
 //	    }
 	    
@@ -118,14 +118,13 @@ public void user_verify_the_page_title(String arg1) throws Throwable {
 	}
 
 	@Then("^user verify succesfully shipped items \"([^\"]*)\"$")
-public void user_verify_succesfully_shipped_items(String arg1) throws Throwable {
-   WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'" + arg1 + "')]")));	
-	    WebElement actualElement = driver.findElement(By.xpath("//*[contains(text(),'Thank you,your order has been placed successfully')]"));
-	    String actual = actualElement.getText();
-	    Assert.assertTrue("The text for product shipment is incorrect", actual.contains(arg1));
+        public void user_verify_succesfully_shipped_items(String arg1) throws Throwable {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'" + arg1 + "')]")));	
+	WebElement actualElement = driver.findElement(By.xpath("//*[contains(text(),'Thank you, your order has been placed successfully')]"));
+	String actual = actualElement.getText();
+	Assert.assertTrue("The text for product shipment is incorrect", actual.contains(arg1));
 }
-
 
 }
 
